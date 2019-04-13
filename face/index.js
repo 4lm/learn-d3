@@ -35,21 +35,29 @@ const rightEye = eyesG
     .attr('r', eyeRadius)
     .attr('cx', eyeSpacing);
 
-const leftEyeBrow = eyesG
+const eyeBrowsG = eyesG
+  .append('g')
+    .attr('transform', `translate(0, ${eyeBrowYOffSet} - 50)`);
+
+eyeBrowsG
+  .transition().duration(2000)
+    .attr('transform', `translate(0, ${eyeBrowYOffSet})`)
+  .transition().duration(2000)
+    .attr('transform', `translate(0, ${eyeBrowYOffSet} - 50)`);
+
+const leftEyeBrow = eyeBrowsG
   .append('rect')
     .attr('x', -eyeSpacing - eyeBrowWidth / 2)
     .attr('y', eyeBrowYOffSet)
     .attr('width', eyeBrowWidth)
     .attr('height', eyeBrowHeight);
 
-const rightEyeBrow = eyesG
+const rightEyeBrow = eyeBrowsG
   .append('rect')
     .attr('x', eyeSpacing - eyeBrowWidth / 2)
     .attr('y', eyeBrowYOffSet)
     .attr('width', eyeBrowWidth)
-    .attr('height', eyeBrowHeight)
-  .transition().duration(2000)
-    .attr('y', eyeBrowYOffSet - 50);
+    .attr('height', eyeBrowHeight);
 
 const mouth = g
 .append('path')
