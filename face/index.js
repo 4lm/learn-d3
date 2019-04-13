@@ -11,30 +11,36 @@ const eyeBrowWidth = 70;
 const eyeBrowHeight = 15;
 const eyeBrowYOffSet = -70;
 
-const g = svg.append('g')
-  .attr('transform', `translate(${width / 2}, ${height / 2})`);
+const g = svg
+  .append('g')
+    .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-const circle = g.append('circle')
-  .attr('r', height / 2)
-  .attr('fill', 'yellow')
-  .attr('stroke', 'black');
+const circle = g
+  .append('circle')
+    .attr('r', height / 2)
+    .attr('fill', 'yellow')
+    .attr('stroke', 'black');
 
-const eyesG = g.append('g')
-  .attr('transform', `translate(0, ${eyeYOffset})`);
+const eyesG = g
+  .append('g')
+    .attr('transform', `translate(0, ${eyeYOffset})`);
 
-const leftEye = eyesG.append('circle')
-  .attr('r', eyeRadius)
-  .attr('cx', -eyeSpacing);
+const leftEye = eyesG
+  .append('circle')
+    .attr('r', eyeRadius)
+    .attr('cx', -eyeSpacing);
 
-const rightEye = eyesG.append('circle')
-  .attr('r', eyeRadius)
-  .attr('cx', eyeSpacing);
+const rightEye = eyesG
+  .append('circle')
+    .attr('r', eyeRadius)
+    .attr('cx', eyeSpacing);
 
-const leftEyeBrow = eyesG.append('rect')
-  .attr('x', -eyeSpacing - eyeBrowWidth / 2)
-  .attr('y', eyeBrowYOffSet)
-  .attr('width', eyeBrowWidth)
-  .attr('height', eyeBrowHeight);
+const leftEyeBrow = eyesG
+  .append('rect')
+    .attr('x', -eyeSpacing - eyeBrowWidth / 2)
+    .attr('y', eyeBrowYOffSet)
+    .attr('width', eyeBrowWidth)
+    .attr('height', eyeBrowHeight);
 
 const rightEyeBrow = eyesG
   .append('rect')
@@ -45,7 +51,8 @@ const rightEyeBrow = eyesG
   .transition().duration(2000)
     .attr('y', eyeBrowYOffSet - 50);
 
-const mouth = g.append('path')
+const mouth = g
+.append('path')
   .attr('d', d3.arc()({
     innerRadius: 150,
     outerRadius: 170,
