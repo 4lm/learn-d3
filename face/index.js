@@ -6,7 +6,10 @@ const width = +svg.attr('width');
 const height = +svg.attr('height');
 const eyeSpacing = 100;
 const eyeYOffset = -70;
-const eyeRadius = 30;
+const eyeRadius = 40;
+const eyeBrowWidth = 70;
+const eyeBrowHeight = 15;
+const eyeBrowYOffSet = -70;
 
 const g = svg.append('g')
     .attr('transform', `translate(${width / 2}, ${height / 2})`);
@@ -26,6 +29,18 @@ const leftEye =  eyesG.append('circle')
 const rightEye =  eyesG.append('circle')
     .attr('r', eyeRadius)
     .attr('cx', eyeSpacing);
+
+const leftEyeBrow = eyesG.append('rect')
+    .attr('x', -eyeSpacing -eyeBrowWidth / 2)
+    .attr('y', eyeBrowYOffSet)
+    .attr('width', eyeBrowWidth)
+    .attr('height', eyeBrowHeight);
+
+const rightEyeBrow = eyesG.append('rect')
+    .attr('x', eyeSpacing -eyeBrowWidth / 2)
+    .attr('y', eyeBrowYOffSet)
+    .attr('width', eyeBrowWidth)
+    .attr('height', eyeBrowHeight);
 
 const mouth = g.append('path')
     .attr('d', d3.arc()({
