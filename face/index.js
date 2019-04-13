@@ -31,8 +31,8 @@ const g = svg.append('g')
 
 const mouth = g.append('path')
     .attr('d', d3.arc()({
-        innerRadius: 80,
-        outerRadius: 100,
-        startAngle: 0,
-        endAngle: Math.PI
+        innerRadius: 150,
+        outerRadius: 170,
+        startAngle: Math.PI / 2,
+        endAngle: Math.PI * 3 / 2
     }));
