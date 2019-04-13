@@ -1,0 +1,15 @@
+{
+  "name": "face",
+  "version": "1.0.0",
+  "description": "This project is modelled after a [d3 tutorial](https://www.youtube.com/watch?v=-RQWC4I2I1s) from Curran Kelleher.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
