@@ -7,9 +7,9 @@ const height = +svg.attr('height');
 const eyeSpacing = 100;
 const eyeYOffset = -70;
 const eyeRadius = 40;
-const eyeBrowWidth = 70;
-const eyeBrowHeight = 15;
-const eyeBrowYOffSet = -70;
+const eyebrowWidth = 70;
+const eyebrowHeight = 15;
+const eyebrowYOffSet = -70;
 
 const g = svg
   .append('g')
@@ -35,29 +35,29 @@ const rightEye = eyesG
     .attr('r', eyeRadius)
     .attr('cx', eyeSpacing);
 
-const eyeBrowsG = eyesG
+const eyebrowsG = eyesG
   .append('g')
-    .attr('transform', `translate(0, ${eyeBrowYOffSet} - 50)`);
+    .attr('transform', `translate(0, ${eyebrowYOffSet} - 50)`);
 
-eyeBrowsG
+eyebrowsG
   .transition().duration(2000)
-    .attr('transform', `translate(0, ${eyeBrowYOffSet})`)
+    .attr('transform', `translate(0, ${eyebrowYOffSet})`)
   .transition().duration(2000)
-    .attr('transform', `translate(0, ${eyeBrowYOffSet} - 50)`);
+    .attr('transform', `translate(0, ${eyebrowYOffSet} - 50)`);
 
-const leftEyeBrow = eyeBrowsG
+const leftEyebrow = eyebrowsG
   .append('rect')
-    .attr('x', -eyeSpacing - eyeBrowWidth / 2)
-    .attr('y', eyeBrowYOffSet)
-    .attr('width', eyeBrowWidth)
-    .attr('height', eyeBrowHeight);
+    .attr('x', -eyeSpacing - eyebrowWidth / 2)
+    .attr('y', eyebrowYOffSet)
+    .attr('width', eyebrowWidth)
+    .attr('height', eyebrowHeight);
 
-const rightEyeBrow = eyeBrowsG
+const rightEyebrow = eyebrowsG
   .append('rect')
-    .attr('x', eyeSpacing - eyeBrowWidth / 2)
-    .attr('y', eyeBrowYOffSet)
-    .attr('width', eyeBrowWidth)
-    .attr('height', eyeBrowHeight);
+    .attr('x', eyeSpacing - eyebrowWidth / 2)
+    .attr('y', eyebrowYOffSet)
+    .attr('width', eyebrowWidth)
+    .attr('height', eyebrowHeight);
 
 const mouth = g
 .append('path')
