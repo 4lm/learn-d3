@@ -36,7 +36,9 @@ const render = data => {
       .remove();
 
   g.append('g').call(xAxis)
-    .attr('transform', `translate(0, ${innerHeight})`);
+    .attr('transform', `translate(0, ${innerHeight})`)
+    .selectAll('.domain')
+      .remove();
 
   g.selectAll('rect').data(data)
     .enter().append('rect')
