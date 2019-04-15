@@ -6,21 +6,20 @@ const width = +svg.attr('width');
 const height = +svg.attr('height');
 
 const render = data => {
-  const xValue = d => d.population;
-  const yValue = d => d.country;
+  const xValue = d => d.weight;
+  const yValue = d => d.horsepower;
   const margin = { top: 50, right: 40, bottom: 77, left: 180};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
   const xScale = d3.scaleLinear()
-    .domain([0, d3.max(data, xValue)])
+    .domain(d3.extent(data, xValue))
     .range([0, innerWidth])
     .nice();
 
-  const yScale = d3.scalePoint()
-    .domain(data.map(yValue))
-    .range([0, innerHeight])
-    .padding(0.7);
+  const yScale = d3.scaleLinear()
+    .domain(d3.extent(data, yValue))
+    .range([0, innerHeight]);
 
   const g = svg.append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
@@ -67,7 +66,13 @@ const render = data => {
 
 d3.csv('data.csv').then(data => {
   data.forEach(d => {
-    d.population = +d.population * 1000;
+    d.mpg = +d.mpg;
+    d.cylinders = +d.cylinders;
+    d.displacement = +d.displacement;
+    d.horsepower = +d.horsepower;
+    d.weight = +d.weight;
+    d.acceleration = +d.acceleration;
+    d.year = +d.year;
   })
   render(data);
 });
