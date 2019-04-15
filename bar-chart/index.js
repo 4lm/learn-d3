@@ -8,16 +8,22 @@ const height = +svg.attr('height');
 const render = data => {
   const xValue = d => d.population;
   const yValue = d => d.country;
+  const margin = { top: 20, right: 20, bottom: 20, left: 20};
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
 
   const xScale = d3.scaleLinear()
     .domain([0, d3.max(data, xValue)])
-    .range([0, width]);
+    .range([0, innerWidth]);
 
   const yScale = d3.scaleBand()
     .domain(data.map(yValue))
-    .range([0, height]);
+    .range([0, innerHeight]);
 
-  svg.selectAll('rect').data(data)
+  const g = svg.append('g')
+    .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+  g.selectAll('rect').data(data)
     .enter().append('rect')
       .attr('y', d => yScale(yValue(d)))
       .attr('width', d => xScale(xValue(d)))
