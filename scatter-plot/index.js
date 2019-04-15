@@ -14,7 +14,8 @@ const render = data => {
 
   const xScale = d3.scaleLinear()
     .domain([0, d3.max(data, xValue)])
-    .range([0, innerWidth]);
+    .range([0, innerWidth])
+    .nice();
 
   const yScale = d3.scalePoint()
     .domain(data.map(yValue))
