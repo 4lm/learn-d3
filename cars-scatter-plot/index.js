@@ -23,31 +23,29 @@ const render = data => {
 
   const yScale = d3.scaleLinear()
     .domain(d3.extent(data, yValue))
-    .range([0, innerHeight]);
+    .range([0, innerHeight])
+    .nice();
 
   const g = svg.append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-  const xAxisTickFormat = number =>
-    d3.format('.3s')(number)
-    .replace('G', 'B');
-
   const xAxis = d3.axisBottom(xScale)
-    .tickFormat(xAxisTickFormat)
-    .tickSize(-innerHeight);
+    .tickSize(-innerHeight)
+    .tickPadding(15);
 
   const yAxis = d3.axisLeft(yScale)
-    .tickSize(-innerWidth);
+    .tickSize(-innerWidth)
+    .tickPadding(15);
 
   const yAxisG = g.append('g')
-    .call(yAxis)
+    .call(yAxis);
 
   yAxisG.selectAll('.domain').remove();
 
   yAxisG.append('text')
     .attr('class', 'axis-label')
     .attr('x', -innerHeight / 2)
-    .attr('y', -90)
+    .attr('y', -93)
     .attr('fill', 'black')
     .attr('transform', 'rotate(-90)')
     .style('text-anchor', 'middle')
