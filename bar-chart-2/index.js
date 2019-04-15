@@ -24,7 +24,12 @@ const render = data => {
   const g = svg.append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-  const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('.3s'));
+  const xAxisTickFormat = number =>
+    d3.format('.3s')(number)
+    .replace('G', 'B');
+
+  const xAxis = d3.axisBottom(xScale)
+    .tickFormat(xAxisTickFormat);
 
   g.append('g').call(d3.axisLeft(yScale));
   g.append('g').call(xAxis)
