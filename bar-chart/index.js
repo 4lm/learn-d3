@@ -6,18 +6,21 @@ const width = +svg.attr('width');
 const height = +svg.attr('height');
 
 const render = data => {
+  const xValue = d => d.population;
+  const yValue = d => d.country;
+
   const xScale = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.population)])
+    .domain([0, d3.max(data, xValue)])
     .range([0, width]);
 
   const yScale = d3.scaleBand()
-    .domain(data.map(d => d.country))
+    .domain(data.map(yValue))
     .range([0, height]);
 
   svg.selectAll('rect').data(data)
     .enter().append('rect')
-      .attr('y', d => yScale(d.country))
-      .attr('width', d => xScale(d.population))
+      .attr('y', d => yScale(yValue(d)))
+      .attr('width', d => xScale(xValue(d)))
       .attr('height', yScale.bandwidth());
 };
 
