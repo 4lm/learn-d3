@@ -5,6 +5,7 @@ body {
 
 circle {
   fill: steelblue;
+  opacity: 0.5;
 }
 
 text {

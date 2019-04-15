@@ -11,6 +11,7 @@ const render = data => {
   const margin = { top: 50, right: 40, bottom: 77, left: 180};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
+  const circleRadius = 10;
 
   const xScale = d3.scaleLinear()
     .domain(d3.extent(data, xValue))
@@ -56,7 +57,7 @@ const render = data => {
     .enter().append('circle')
       .attr('cy', d => yScale(yValue(d)))
       .attr('cx', d => xScale(xValue(d)))
-      .attr('r', 18);
+      .attr('r', circleRadius);
 
   g.append('text')
     .attr('class', 'title')
