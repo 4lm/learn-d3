@@ -8,7 +8,7 @@ const height = +svg.attr('height');
 const render = data => {
   const xValue = d => d.population;
   const yValue = d => d.country;
-  const margin = { top: 50, right: 40, bottom: 70, left: 200};
+  const margin = { top: 50, right: 40, bottom: 77, left: 180};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -42,6 +42,7 @@ const render = data => {
   xAxisG.select('.domain').remove();
 
   xAxisG.append('text')
+  .attr('class', 'axis-label')
   .attr('x', innerWidth / 2)
   .attr('y', 65)
   .attr('fill', 'black')
@@ -54,6 +55,7 @@ const render = data => {
       .attr('height', yScale.bandwidth());
 
   g.append('text')
+    .attr('class', 'title')
     .attr('y', -10)
     .text('Top 10 Most Populous Countries');
 };
