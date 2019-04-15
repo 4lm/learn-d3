@@ -29,7 +29,8 @@ const render = data => {
     .replace('G', 'B');
 
   const xAxis = d3.axisBottom(xScale)
-    .tickFormat(xAxisTickFormat);
+    .tickFormat(xAxisTickFormat)
+    .tickSize(-innerHeight);
 
   g.append('g').call(d3.axisLeft(yScale))
     .selectAll('.domain, .tick line')
