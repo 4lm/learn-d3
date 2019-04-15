@@ -8,7 +8,7 @@ const height = +svg.attr('height');
 const render = data => {
   const xValue = d => d.population;
   const yValue = d => d.country;
-  const margin = { top: 20, right: 40, bottom: 20, left: 100};
+  const margin = { top: 20, right: 40, bottom: 30, left: 200};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
